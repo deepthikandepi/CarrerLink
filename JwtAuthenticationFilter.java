@@ -1,6 +1,4 @@
-package com.careerlink.auth.config;
-
-import com.careerlink.auth.service.JwtService;
+package com.careerlink.profile.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -23,14 +21,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     public JwtAuthenticationFilter(JwtService jwtService) {
         this.jwtService = jwtService;
-    }
-
-    @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) {
-        String path = request.getServletPath();
-
-        return path.startsWith("/auth/")
-                || path.startsWith("/actuator/");
     }
 
     @Override

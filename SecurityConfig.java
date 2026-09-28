@@ -1,10 +1,9 @@
-package com.careerlink.auth.config;
+package com.careerlink.profile.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -13,13 +12,9 @@ public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter) {
+    public SecurityConfig(
+            JwtAuthenticationFilter jwtAuthenticationFilter) {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 
     @Bean
@@ -32,11 +27,27 @@ public class SecurityConfig {
             .httpBasic(basic -> basic.disable())
 
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers(
-                    "/auth/register",
-                    "/auth/login",
-                    "/actuator/**"
-                ).permitAll()
+
+                // Actuator
+                .requestMatchers("/actuator/**").permitAll()
+
+                // View profiles
+                .requestMatchers(HttpMethod.GET, "/profiles/**")
+                .hasAnyRole("JOB_SEEKER", "RECRUITER")
+
+                // Create profile
+                .requestMatchers(HttpMethod.POST, "/profiles")
+                .hasRole("JOB_SEEKER")
+
+                // Update profile
+                .requestMatchers(HttpMethod.PUT, "/profiles/**")
+                .hasRole("JOB_SEEKER")
+
+                // Delete profile
+                .requestMatchers(HttpMethod.DELETE, "/profiles/**")
+                .hasRole("JOB_SEEKER")
+
+                // Everything else
                 .anyRequest().authenticated()
             )
 

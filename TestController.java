@@ -1,4 +1,4 @@
-package com.careerlink.auth.controller;
+package com.careerlink.job.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-    @GetMapping("/test")
+    @GetMapping("/job-test")
     public String test() {
-        return "JWT authentication is working";
+        return "Job Service JWT authentication is working";
     }
 }

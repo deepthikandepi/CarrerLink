@@ -9,7 +9,6 @@ For further reference, please consider the following sections:
 * [Spring Boot Actuator](https://docs.spring.io/spring-boot/4.1.1/reference/actuator/index.html)
 * [Eureka Discovery Client](https://docs.spring.io/spring-cloud-netflix/reference/spring-cloud-netflix.html#_service_discovery_eureka_clients)
 * [Spring Data JPA](https://docs.spring.io/spring-boot/4.1.1/reference/data/sql.html#data.sql.jpa-and-spring-data)
-* [Spring Security](https://docs.spring.io/spring-boot/4.1.1/reference/web/spring-security.html)
 * [Validation](https://docs.spring.io/spring-boot/4.1.1/reference/io/validation.html)
 * [Spring Web](https://docs.spring.io/spring-boot/4.1.1/reference/web/servlet.html)
 
@@ -19,9 +18,6 @@ The following guides illustrate how to use some features concretely:
 * [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
 * [Service Registration and Discovery with Eureka and Spring Cloud](https://spring.io/guides/gs/service-registration-and-discovery/)
 * [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Securing a Web Application](https://spring.io/guides/gs/securing-web/)
-* [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/)
-* [Authenticating a User with LDAP](https://spring.io/guides/gs/authenticating-ldap/)
 * [Validation](https://spring.io/guides/gs/validating-form-input/)
 * [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
 * [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
